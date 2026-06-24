@@ -1,0 +1,18 @@
+{
+  "provider": {
+    "openai:deadend-cli": {
+      "provider": "openai",
+      "model_name": "deadend-cli",
+      "api_key": "sk-PYhCsxjk3RX-iSh7Ni17qg",
+      "base_url": "http://litellm:4000/v1"
+    },
+    "openai:text-embedding-3-small": {
+      "provider": "openai",
+      "model_name": "deadend-cli-embeddings",
+      "api_key": "sk-PYhCsxjk3RX-iSh7Ni17qg",
+      "base_url": "http://litellm:4000/v1",
+      "type_model": "embeddings",
+      "vec_dim": 1536
+    }
+  }
+}
