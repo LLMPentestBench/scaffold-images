@@ -25,8 +25,3 @@ RUN curl -fsSL https://raw.githubusercontent.com/xoxruns/deadend-cli/v0.1.15/ins
 COPY config.json /root/.cache/deadend/config.json
 
 COPY --from=image-fetch /image.tar /preload/images/sandboxed_kali.tar
-
-COPY docker-preload.service /etc/systemd/system/docker-preload.service
-COPY docker-preload.sh /usr/local/bin/docker-preload.sh
-RUN chmod +x /usr/local/bin/docker-preload.sh && \
-    systemctl enable docker-preload.service
