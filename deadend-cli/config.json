@@ -6,9 +6,9 @@
       "api_key": "sk-123",
       "base_url": "http://litellm:4000/v1"
     },
-    "openai:text-embedding-3-small": {
+    "openai:embedding-model": {
       "provider": "openai",
-      "model_name": "deadend-cli-embeddings",
+      "model_name": "embedding-model",
       "api_key": "sk-123",
       "base_url": "http://litellm:4000/v1",
       "type_model": "embeddings",
