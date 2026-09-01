@@ -1,0 +1,48 @@
+{
+    "defaults":{
+        "provider": "openai"
+    },
+    "provider":{
+        "openai": {
+            "base_url": "http://localhost:4000/v1",
+            "default_model": "blacksmith",
+            "default_embedding_model": "embedding-model",
+            "default_model_config": {
+                "context_size": 200000,
+                "max_retries": 3,
+                "stream_usage": true,
+                "max_tokens": null
+            },
+            "default_embedding_model_config": {
+                "max_retries": 3,
+                "embedding_ctx_length": 8191
+            }
+        }
+    },
+    "tools":{
+
+        "reconnaissance": [
+            "whois", "dnsutils (dig/nslookup)", "dnsrecon",
+            "assetfinder", "findomain", "subfinder"
+        ],
+        "scanning_enumeration": [
+            "nmap", "masscan", "enum4linux-ng",
+            "gobuster", "wpscan", "fingerprintx"
+        ],
+        "vulnerability_mapping": [
+            "nuclei", "sslscan"
+        ],
+        "exploitation": [
+            "sqlmap", "hydra", "medusa", "ncrack"
+        ],
+        "post_exploitation": [
+            "netcat-traditional", "socat",
+            "impacket CLIs (psexec, smbclient, secretsdump)"
+        ],
+        "general": [
+            "python3", "pip3", "Go toolchain (go install tools)", 
+            "build-essential", "gcc", "gdb", "strace",
+            "flask", "httpie", "curl", "openssh-client", "hping3"
+        ]
+    }
+}

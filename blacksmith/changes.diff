@@ -1,0 +1,23 @@
+diff --git a/blacksmithAI/main.py b/blacksmithAI/main.py
+index ea5c87c..e32dc5b 100644
+--- a/blacksmithAI/main.py
++++ b/blacksmithAI/main.py
+@@ -419,7 +419,9 @@ def main():
+     while True:
+         try:
+             # Use HTML for prompt_toolkit to handle colors correctly
+-            user_input = session.prompt(HTML('<style color="green"><b>User&gt; </b></style>'))
++            #user_input = session.prompt(HTML('<style color="green"><b>User&gt; </b></style>'))
++            import sys
++            user_input = sys.argv[1]
+ 
+             if user_input.startswith('/'):
+                 command = user_input.split(' ')[0]
+@@ -449,6 +451,7 @@ def main():
+                 continue
+             else:
+                 asyncio.run(runner(orchestrator, user_input, config))
++                break
+ 
+         except KeyboardInterrupt:
+             console.print("\n[bold red]Exiting...[/bold red]")
