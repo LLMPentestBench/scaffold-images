@@ -1,0 +1,12 @@
+[Unit]
+Description=Initialize Blacksmith
+Requires=docker.service
+After=docker.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/local/bin/blacksmith-init.sh
+
+[Install]
+WantedBy=multi-user.target

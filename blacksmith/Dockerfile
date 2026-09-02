@@ -31,7 +31,12 @@ RUN cd /root/blacksmith && \
 COPY set_key.sh /root/set_key.sh
 COPY config.json /root/blacksmith/blacksmithAI/config.json
 
+COPY init.service /etc/systemd/system/blacksmith-init.service
+COPY init.sh /usr/local/bin/blacksmith-init.sh
+
 RUN chmod +x /root/set_key.sh && \
-    rm /root/changes.diff
+    rm /root/changes.diff && \
+    chmod +x /usr/local/bin/blacksmith-init.sh && \
+    systemctl enable blacksmith-init.service
 
 COPY --from=image-fetch /image.tar /preload/images/mini-kali-slim.tar
