@@ -5,7 +5,8 @@ WORKDIR /root
 RUN uv python install 3.12 && \
     git clone -n https://github.com/aliasrobotics/cai ~/cai && \
     cd ~/cai && \
-    git checkout 559de8fcbc2b44f3b0360f35ffdc2bb975e7d7e4
+    git fetch origin 559de8fcbc2b44f3b0360f35ffdc2bb975e7d7e4 && \
+    git switch --detach FETCH_HEAD
 
 COPY cai.diff cai.diff
 
