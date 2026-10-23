@@ -8,7 +8,7 @@
             "default_model": "blacksmith",
             "default_embedding_model": "embedding-model",
             "default_model_config": {
-                "context_size": 200000,
+                "context_size": 400000,
                 "max_retries": 3,
                 "stream_usage": true,
                 "max_tokens": null
