@@ -9,7 +9,7 @@ RUN apt-get update && \
 RUN mkdir -p /images && \
     skopeo copy \
       --override-os linux \
-      docker://docker.io/yohannesgk/mini-kali-slim@sha256:0e4a4dcaad713f822a153e457f69fab5f3ff3073605e4a4aa9cd8e804d86d270 \
+      docker://docker.io/yohannesgk/mini-kali-slim@sha256:06347a4aa00ffd37512466ee870cda5173ac70c36d8f556fa98036c34bed89c8 \
       docker-archive:/image.tar:yohannesgk/mini-kali-slim:latest
 
 FROM llmptb-baseimage:latest
@@ -18,15 +18,14 @@ WORKDIR /root
 
 RUN git clone https://github.com/yohannesgk/blacksmith.git && \
     cd blacksmith && \
-    git checkout 8f60810766ddb0b622e8231dd547ccf08ef2fca4
+    git checkout b6bfbc98debe37cf29c968a96f04fce3edec0bd1
 
 COPY changes.diff /root/changes.diff
 
 RUN cd /root/blacksmith && \
     git apply /root/changes.diff && \
     cd /root/blacksmith/blacksmithAI && \
-    uv sync && \
-    uv add prompt_toolkit
+    uv sync
 
 COPY set_key.sh /root/set_key.sh
 COPY config.json /root/blacksmith/blacksmithAI/config.json
